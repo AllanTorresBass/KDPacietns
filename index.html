@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Pacientes</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #ffffff;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      h1 {
+        color: #00ffcc;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .paciente-list {
+        list-style: none;
+        padding: 0;
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .paciente-item {
+        margin: 10px 0;
+      }
+
+      .paciente-link {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: block;
+        background-color: #2d2d2d;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .paciente-link:hover {
+        background-color: #00ffcc;
+        color: #1e1e1e;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lista de Pacientes</h1>
+    <ul class="paciente-list">
+      <!-- Lista de enlaces generados dinámicamente -->
+      <script>
+        // Array de objetos con los nombres de los pacientes
+        const pacientes = [
+          { Paciente: "ROBERT_LINARES" },
+          { Paciente: "RICARDO_LINARES" },
+          { Paciente: "VICKY_VICKY" },
+          { Paciente: "ADRIANA_ANGARITA" },
+          { Paciente: "MARIA_FERNANDA" },
+          { Paciente: "MARY_GODOY" },
+          { Paciente: "DAEKERLYS_BARRIOS" },
+          { Paciente: "AMELYS_ARAQUE" },
+          { Paciente: "BEATRIZ_TORRES" },
+          { Paciente: "ANTONELLA_ANTONELLA" },
+          { Paciente: "ELIZABETH_DE_FRANCO" },
+          { Paciente: "ELBA_ATENCIO" },
+          { Paciente: "GIULIANA_MENOLASINA" },
+          { Paciente: "VANESSA_VANESSA" },
+          { Paciente: "POTITO_MAINOLFI" },
+          { Paciente: "VERONIKA_VERO" },
+          { Paciente: "REINALDO_DABOIN" },
+          { Paciente: "MARVIK_MARVIK" },
+          { Paciente: "ANDREINA_LEGIZAMO" },
+          { Paciente: "REBECA_UZCATEGUI" },
+          { Paciente: "MARIA_UZCATEGUI" },
+          { Paciente: "CARMEN_ARAUJO" },
+          { Paciente: "ANGELICA_BASTIDAS" },
+          { Paciente: "LAURA_OJEDA" },
+          { Paciente: "YUGHATSI_COLINA" },
+          { Paciente: "DUBRASKA_MATOS" },
+          { Paciente: "NINOSKA_NINOSKA" },
+          { Paciente: "NENA_MUÑOZ" },
+          { Paciente: "YANDRY_MALDONADO" },
+          { Paciente: "ORMARY_RODRIGUEZ" },
+          { Paciente: "MARLENY_COROMOTO" },
+          { Paciente: "OSCAR_RAMOS" },
+          { Paciente: "YIMERLUIS_OSUNA" },
+          { Paciente: "DANIA_RIVAS" },
+          { Paciente: "ANYIMAR_RODRIGUEZ" },
+          { Paciente: "CRELIA_VALERA" },
+          { Paciente: "JONATHAN_CASTRO" },
+          { Paciente: "JENNY_COLLS" },
+          { Paciente: "BEATRIZ_MENDEZ" },
+          { Paciente: "ANDREA_DI_GABRIELE" },
+          { Paciente: "MARIANT_BRAVO" },
+          { Paciente: "MARIELENA_DABOIN" },
+          { Paciente: "JAVIER_DELGADILLO" },
+          { Paciente: "ANTONELLA_ANTONELLA" },
+          { Paciente: "ARACELYS_PLAZA" },
+          { Paciente: "BEATRIZ_TORRES" },
+          { Paciente: "ELIZABETH_DE_FRANCO" },
+          { Paciente: "EMILY_TEJAN" },
+          { Paciente: "GENESIS_GIL" },
+          { Paciente: "GERARDO_GERARDO" },
+          { Paciente: "JUANA_OCANTO" },
+          { Paciente: "LISETH_LISETH" },
+          { Paciente: "MARYU_MARYU" },
+          { Paciente: "RICARDO_LINARES" },
+          { Paciente: "ROBERT_LINARES" },
+          { Paciente: "YADIS_YADIS" },
+        ];
+
+        // Ordenar la lista de pacientes alfabéticamente por nombre
+        pacientes.sort((a, b) => a.Paciente.localeCompare(b.Paciente));
+
+        // Generar los enlaces a los archivos PDF
+        const listaPacientes = document.querySelector(".paciente-list");
+        pacientes.forEach((paciente) => {
+          const item = document.createElement("li");
+          item.className = "paciente-item";
+          const link = document.createElement("a");
+          link.className = "paciente-link";
+          link.href = `AllFiles/${paciente.Paciente}.pdf`; // Ruta al archivo PDF del paciente
+          link.target = "_blank"; // Abrir en una nueva pestaña
+          link.textContent = paciente.Paciente.replace(/_/g, " "); // Mostrar el nombre con espacios
+          item.appendChild(link);
+          listaPacientes.appendChild(item);
+        });
+      </script>
+    </ul>
+  </body>
+</html>
